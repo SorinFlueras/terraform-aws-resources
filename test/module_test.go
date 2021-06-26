@@ -16,11 +16,15 @@ func TestTerraformAws (t *testing.T) {
 
 	awsRegion := "us-east-1"
 
+	assessmentTemplateName := "test-template"
+	assessmentTargetName := "test-target"
+
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 		TerraformDir: testFolder,
 
 		Vars: map[string]interface{}{
-			//add tf vars here
+			"assessment_target_name" : assessmentTargetName,
+			"assessment_template_name" : assessmentTemplateName,
 		},
 
 		EnvVars: map[string]string{
