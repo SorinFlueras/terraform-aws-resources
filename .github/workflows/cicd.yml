@@ -16,7 +16,7 @@ env:
   TF_VAR_PROD_ACCOUNT_ID: ${{ secrets.PROD_ACCOUNT_ID }}
 
 jobs:
-  Security Scan:
+  security-scan:
     runs-on: ubuntu-latest
     container: 
       image: sorinflueras96/terraform-cicd:latest
