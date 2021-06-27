@@ -19,6 +19,9 @@ func TestTerraformAws (t *testing.T) {
 	assessmentTemplateName := "test-template"
 	assessmentTargetName := "test-target"
 	snsTopicName := "test-sns-topic-for-inspector"
+	managementAccountId := "123456789012"
+	managementAccountAutomationRoleName := "terraform-cicd-role"
+	sqsQueueArn := "arn:aws:sqs:us-east-1:444455556666:queue1"
 
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 		TerraformDir: testFolder,
@@ -27,6 +30,9 @@ func TestTerraformAws (t *testing.T) {
 			"assessment_target_name" : assessmentTargetName,
 			"assessment_template_name" : assessmentTemplateName,
 			"sns_topic_name" : snsTopicName,
+			"sqs_queue_arn" : sqsQueueArn,
+			"management_account_automation_role_name" : managementAccountAutomationRoleName,
+			"management_account_id" : managementAccountId,
 		},
 
 		EnvVars: map[string]string{
