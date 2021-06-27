@@ -18,6 +18,7 @@ func TestTerraformAws (t *testing.T) {
 
 	assessmentTemplateName := "test-template"
 	assessmentTargetName := "test-target"
+	snsTopicName := "test-sns-topic-for-inspector"
 
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 		TerraformDir: testFolder,
@@ -25,6 +26,7 @@ func TestTerraformAws (t *testing.T) {
 		Vars: map[string]interface{}{
 			"assessment_target_name" : assessmentTargetName,
 			"assessment_template_name" : assessmentTemplateName,
+			"sns_topic_name" : snsTopicName,
 		},
 
 		EnvVars: map[string]string{
